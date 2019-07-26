@@ -1,0 +1,26 @@
+{
+  "name": "create-minimal-react-app",
+  "version": "1.0.0",
+  "description": "a barebones react application",
+  "main": "createMinimalReactApp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexzye/create-minimal-react-app.git"
+  },
+  "keywords": [
+    "react",
+    "minimal",
+    "singlepage",
+    "barebones",
+    "web"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexzye/create-minimal-react-app/issues"
+  },
+  "homepage": "https://github.com/alexzye/create-minimal-react-app#readme"
+}
