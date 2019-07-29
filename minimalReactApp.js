@@ -5,11 +5,13 @@
 const fs = require('fs')
 const cp = require('child_process')
 
-if (process.argv.length < 3) {
+const [,, ...args] = process.argv
+
+if (args.length < 3) {
     console.log('ERROR: missing project name argument')
     process.exit(1) 
 }
-const projectName = process.argv[2]
+const projectName = args[2]
 fs.mkdirSync(projectName)
 
 // updates process directory, all commands forward will be within project directory
