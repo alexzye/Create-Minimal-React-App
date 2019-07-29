@@ -4,7 +4,7 @@
   "description": "a barebones react application",
   "main": "createMinimalReactApp.js",
   "scripts": {
-    "build": "./index.js",
+    "build": "./index.js ./dist",
     "": ""
   },
   "repository": {

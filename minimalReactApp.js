@@ -6,15 +6,15 @@ const fs = require('fs')
 const cp = require('child_process')
 
 const [,, ...args] = process.argv
+const projectName = args[0]
 
-if (args.length < 3) {
+if (args.length < 1) {
     console.log('ERROR: missing project name argument')
     process.exit(1) 
 }
-const projectName = args[2]
-fs.mkdirSync(projectName)
 
 // updates process directory, all commands forward will be within project directory
-process.chdir(projectName)
-cp.execSync('npm init -y')
-cp.execSync('mkdir public src dist')
+cp.exec(`mkdir -p ${projectName} && cd ${projectName} && npm init -f`, 
+	(initErr, initStdout, initStderr) => {
+		
+	})
