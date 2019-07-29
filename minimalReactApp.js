@@ -1,8 +1,7 @@
-// File: createMinimalReactApp.js
+// File: minimalReactApp.js
 // Description: Setup npm package, create project directories and files, and install dependencies.
 
 'use strict'
-
 const fs = require('fs')
 const cp = require('child_process')
 
