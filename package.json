@@ -5,7 +5,6 @@
   "main": "createMinimalReactApp.js",
   "scripts": {
     "build": "./index.js ./dist",
-    "": ""
   },
   "repository": {
     "type": "git",
