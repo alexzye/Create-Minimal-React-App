@@ -31,8 +31,9 @@ cp.exec(`mkdir -p ${projectName} && cd ${projectName} && npm init -y`,
 )
 
 // copy src and base dirs to project directory
-utils.copyDirectory('./assets/src', `${projectName}/src`)
+utils.copyDirectory('./assets/src', path.join(projectName, 'src'))
 utils.copyDirectory('./assets/base', `${projectName}`)
+utils.copyDirectory('./assets/public', path.join(projectName, 'public'))
 
 // runs npm install on project install
 cp.exec(`cd ${projectName} && npm install`,
