@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/alexzye/create-minimal-react-app/issues"
   },
-  "homepage": "https://github.com/alexzye/create-minimal-react-app#readme"
+  "homepage": "https://github.com/alexzye/create-minimal-react-app#readme",
+  "dependencies": {
+    "dist": "file:dist"
+  }
 }
