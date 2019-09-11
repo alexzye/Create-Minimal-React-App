@@ -1,5 +1,5 @@
 {
-  "name": "dist",
+  "name": "react-from-scratch",
   "version": "1.0.0",
   "description": "putting together a react environment without a prebuild toolchain",
   "main": "index.js",

@@ -17,7 +17,7 @@ if (args.length < 1) {
 }
 
 // creates project
-cp.exec(`mkdir -p ${projectName} && cd ${projectName} && npm init -y`,
+cp.exec(`mkdir -p ${projectName} && cd ${projectName}`,
   (initErr, initStdout, initStderr) => {
     if (initErr) {
       // todo: write more professional error messages
@@ -26,8 +26,14 @@ cp.exec(`mkdir -p ${projectName} && cd ${projectName} && npm init -y`,
       return
     }
 
-    console.log(initStdout)
-    console.log(initStderr)
+    let packageJSON = JSON.parse(fs.readFileSync(path.join(projectName, 'package.json')))
+    packageJSON['name'] = projectName
+    
+    fs.writeFile(path.join(projectName, 'package.json'), JSON.stringify(packageJSON, null, 2), (err) => {
+      if (err) {
+        console.log('fuck')
+      }
+    })
   }
 )
 
@@ -37,7 +43,7 @@ utils.copyDirectory('./assets/base', `${projectName}`)
 utils.copyDirectory('./assets/public', path.join(projectName, 'public'))
 
 // runs npm install on project install
-cp.exec(`cd ${projectName} && npm install`,
+cp.exec(`npm install --prefix ${projectName}`,
   (initErr, initStdout, initStderr) => {
     if (initErr) {
       // todo: write more professional error messages
