@@ -4,7 +4,7 @@
   "description": "a barebones react application",
   "main": "createMinimalReactApp.js",
   "scripts": {
-    "build": "/bin/rm -Rf dist/* && /bin/rm -Rf dist/.babelrc && ./index.js ./dist"
+    "test": "/bin/rm -Rf dist/* && /bin/rm -Rf dist/.babelrc && ./index.js dist"
   },
   "repository": {
     "type": "git",
