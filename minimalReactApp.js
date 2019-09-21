@@ -26,6 +26,13 @@ cp.exec(`mkdir -p ${projectName} && cd ${projectName}`,
       return
     }
 
+    // copy src and base dirs to project directory
+    utils.copyDirectory(path.join(__dirname, 'assets/src'), projectName)
+    utils.copyDirectory(path.join(__dirname, 'assets/base/package.json'), `${projectName}`)
+    utils.copyDirectory(path.join(__dirname, 'assets/base/.babelrc'), `${projectName}`)
+    utils.copyDirectory(path.join(__dirname, 'assets/base/webpack.config.js'), `${projectName}`)
+    utils.copyDirectory(path.join(__dirname, 'assets/public'), projectName)
+
     let packageJSON = JSON.parse(fs.readFileSync(path.join(projectName, 'package.json')))
     packageJSON['name'] = projectName
     
@@ -36,11 +43,6 @@ cp.exec(`mkdir -p ${projectName} && cd ${projectName}`,
     })
   }
 )
-
-// copy src and base dirs to project directory
-utils.copyDirectory('./assets/src', path.join(projectName, 'src'))
-utils.copyDirectory('./assets/base', `${projectName}`)
-utils.copyDirectory('./assets/public', path.join(projectName, 'public'))
 
 // runs npm install on project install
 cp.exec(`npm install --prefix ${projectName}`,
