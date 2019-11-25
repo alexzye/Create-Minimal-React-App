@@ -28,7 +28,7 @@ The following packages are the only npm packages installed with MRA.
 
 - Hot reloading with `react-hot-loader`
 - ES6 with `babel`
-- `webpack-dev-server`
+- Dev building with `webpack-dev-server`
 - `css` and `sass` loaders
 
 ## Usage
@@ -47,9 +47,9 @@ That's it!
 
 ## Structure
 
-The created project will have the following structure.
+The project will be created with the following structure.
 
-*Note*: node_modules contents not listed
+*Note*: `node_modules` contents not listed
 
 ```
 project-name
