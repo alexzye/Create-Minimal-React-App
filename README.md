@@ -2,8 +2,8 @@
 A very basic React bootstrapper.
 
 ## Prerequisites
-- npm
-- node
+- `npm`
+- `node`
 
 ## Included Packages
 
@@ -44,3 +44,25 @@ npm start
 Then visit [http://localhost:3000/](http://localhost:3000/)
 
 That's it!
+
+## Structure
+
+The created project will have the following structure.
+
+*Note*: node_modules contents not listed
+
+```
+project-name
+├── node_modules
+├── package-lock.json
+├── package.json
+├── public
+│   └── index.html
+├── src
+│   ├── App.js
+│   ├── App.scss
+│   └── index.js
+└── webpack.config.js
+```
+
+
