@@ -1,10 +1,10 @@
 {
-  "name": "minimal-react-app",
-  "version": "1.0.0",
+  "name": "mra",
+  "version": "0.0.1",
   "description": "a barebones react application",
-  "main": "createMinimalReactApp.js",
+  "main": "index.js",
   "scripts": {
-    "test": "/bin/rm -Rf dist/* && /bin/rm -Rf dist/.babelrc && ./index.js ./dist"
+    "test": "/bin/rm -Rf dist/* && /bin/rm -Rf dist/.babelrc && ./index.js dist"
   },
   "repository": {
     "type": "git",
@@ -25,8 +25,5 @@
   "bugs": {
     "url": "https://github.com/alexzye/create-minimal-react-app/issues"
   },
-  "homepage": "https://github.com/alexzye/create-minimal-react-app#readme",
-  "dependencies": {
-    "dist": "file:dist"
-  }
+  "homepage": "https://github.com/alexzye/create-minimal-react-app#readme"
 }

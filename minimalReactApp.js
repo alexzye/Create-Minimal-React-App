@@ -16,16 +16,8 @@ if (args.length < 1) {
   process.exit(1)
 }
 
-
-const devDependencies = {
-  "@babel/core": "^7.5.5",
-  "@babel/preset-env": "^7.5.5",
-  "@babel/preset-react": "^7.0.0",
-  "babel-loader": "^8.0.6"
-}
-
 // creates project
-cp.exec(`mkdir -p ${projectName} && cd ${projectName} && npm init -y`,
+cp.exec(`mkdir -p ${projectName} && cd ${projectName}`,
   (initErr, initStdout, initStderr) => {
     if (initErr) {
       // todo: write more professional error messages
@@ -34,13 +26,17 @@ cp.exec(`mkdir -p ${projectName} && cd ${projectName} && npm init -y`,
       return
     }
 
-    console.log(initStdout)
-    console.log(initStderr)
+    // copy src and base dirs to project directory
+    utils.copyDirectory(path.join(__dirname, 'assets/src'), projectName)
+    utils.copyDirectory(path.join(__dirname, 'assets/base/package.json'), `${projectName}`)
+    utils.copyDirectory(path.join(__dirname, 'assets/base/.babelrc'), `${projectName}`)
+    utils.copyDirectory(path.join(__dirname, 'assets/base/webpack.config.js'), `${projectName}`)
+    utils.copyDirectory(path.join(__dirname, 'assets/public'), projectName)
 
-    var packageJSON = JSON.parse(fs.readFileSync(path.join(`${projectName}`, 'package.json')))
-    packageJSON['devDependencies'] = devDependencies
-    console.log(packageJSON)
-    fs.writeFile(path.join(`${projectName}`, 'package.json'), JSON.stringify(packageJSON, null, 2), (err) => {
+    let packageJSON = JSON.parse(fs.readFileSync(path.join(projectName, 'package.json')))
+    packageJSON['name'] = projectName
+    
+    fs.writeFile(path.join(projectName, 'package.json'), JSON.stringify(packageJSON, null, 2), (err) => {
       if (err) {
         console.log('fuck')
       }
@@ -48,13 +44,8 @@ cp.exec(`mkdir -p ${projectName} && cd ${projectName} && npm init -y`,
   }
 )
 
-// copy src and base dirs to project directory
-utils.copyDirectory('./assets/src', path.join(projectName, 'src'))
-utils.copyDirectory('./assets/base', `${projectName}`)
-utils.copyDirectory('./assets/public', path.join(projectName, 'public'))
-
 // runs npm install on project install
-cp.exec(`cd ${projectName} && npm install`,
+cp.exec(`npm install --prefix ${projectName}`,
   (initErr, initStdout, initStderr) => {
     if (initErr) {
       // todo: write more professional error messages
@@ -67,4 +58,3 @@ cp.exec(`cd ${projectName} && npm install`,
     console.log(initStderr)
   }
 )
-
