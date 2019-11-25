@@ -4,7 +4,7 @@
   "description": "a barebones react application",
   "main": "createMinimalReactApp.js",
   "scripts": {
-    "build": "/bin/rm -Rf dist/* && /bin/rm -Rf dist/.babelrc && ./index.js ./dist"
+    "test": "/bin/rm -Rf dist/* && /bin/rm -Rf dist/.babelrc && ./index.js ./dist"
   },
   "repository": {
     "type": "git",
@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/alexzye/create-minimal-react-app/issues"
   },
-  "homepage": "https://github.com/alexzye/create-minimal-react-app#readme"
+  "homepage": "https://github.com/alexzye/create-minimal-react-app#readme",
+  "dependencies": {
+    "dist": "file:dist"
+  }
 }
